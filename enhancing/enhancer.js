@@ -6,7 +6,11 @@ module.exports = {
 };
 
 function get(item) {
-  return { ...item };
+  return { 
+    name: item.enhancement > 0 ? item.name = `[+${item.enhancement}] ${item.name}`: item.name,
+    durabillty: item.durabillity,
+    enhancement: item.enhancement
+  };
 }
 
 function fail(item) {

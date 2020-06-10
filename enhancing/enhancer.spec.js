@@ -56,4 +56,23 @@ describe("ENHANCEMENT FAILS", () => {
     })
 
 })
+describe("TEST THE GET METHOD", () => {
+    const item = {
+        name: 'power up',
+        durabillity: 90,
+        enhancement: 10
+    }
+    it("if the enhancement level is 0, the the name is not modified.", () => {
+        item.enhancement = 0
+        const data = enhancer.get(item);
+        expect(data.name).toBe('power up')
+    })
+    it("if the enhancement level is greater than 0, change the name to include the enhancement level, preceded by a plus sign ( + ), between square brackets before the item's name. Example: the name of a 'Iron Sword' enhanced to 7 would be [+7] Iron Sword", () => {
+        item.enhancement = 15;
+        const data = enhancer.get(item);
+        expect(data.name).toBe(`[+${data.enhancement}] power up`
+        )
+    })
+
+})
 // test away!
