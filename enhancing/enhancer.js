@@ -10,7 +10,27 @@ function get(item) {
 }
 
 function fail(item) {
-  return  ;
+  // const enhancementChange = item.enhancement < 15 ? item.durabillity -= 5 :
+  //   item.enhancement >= 15 ? item.durabillity -= 10 :
+  //     item.enhancement > 16 ? item.enhancement -= 1 : null
+//   console.log(item)
+  
+//   if (item.enhancement < 15) {
+//     item.durabillity -= 5
+//     return item.durabillity
+// } else if (item.enhancement >= 15) {
+//     item.durabillity -= 10
+//     return item.durabillity
+// } else if (item.enhancement > 16) {
+//     item.enhancement -= 1
+//     return item.enhancement
+// }
+
+  return {
+    name: item.name,
+    enhancement: item.enhancement> 16 ? item.enhancement -= 1 : null,
+    durabillity: item.enhancement < 15 ? item.durabillity -= 5: item.durabillity -= 10
+  };
 }
 
 function repair(item) {
