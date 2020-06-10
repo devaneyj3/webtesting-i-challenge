@@ -5,18 +5,46 @@ module.exports = {
   get,
 };
 
-function succeed(item) {
-  return { ...item };
+function get(item) {
+  return { 
+    name: item.enhancement > 0 ? item.name = `[+${item.enhancement}] ${item.name}`: item.name,
+    durabillty: item.durabillity,
+    enhancement: item.enhancement
+  };
 }
 
 function fail(item) {
-  return { ...item };
+  // const enhancementChange = item.enhancement < 15 ? item.durabillity -= 5 :
+  //   item.enhancement >= 15 ? item.durabillity -= 10 :
+  //     item.enhancement > 16 ? item.enhancement -= 1 : null
+//   console.log(item)
+  
+//   if (item.enhancement < 15) {
+//     item.durabillity -= 5
+//     return item.durabillity
+// } else if (item.enhancement >= 15) {
+//     item.durabillity -= 10
+//     return item.durabillity
+// } else if (item.enhancement > 16) {
+//     item.enhancement -= 1
+//     return item.enhancement
+// }
+
+  return {
+    name: item.name,
+    enhancement: item.enhancement> 16 ? item.enhancement -= 1 : null,
+    durabillity: item.enhancement < 15 ? item.durabillity -= 5: item.durabillity -= 10
+  };
 }
 
 function repair(item) {
-  return { ...item };
+  return item.durabillity = 100;
 }
 
-function get(item) {
-  return { ...item };
+function succeed(item) {
+  return item = {
+    name: item.name,
+    durabillity: item.durabillity,
+    enhancement: item.enhancement  === 20 ? item.enhancement : item.enhancement+= 1
+  }
 }
